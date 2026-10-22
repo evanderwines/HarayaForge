@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HarayaForge | Forging Ideas into Digital Solutions</title>
+  <meta name="description"
+    content="We design and build websites, web and mobile applications, and custom systems that help businesses and communities grow through technology.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Mrs+Saint+Delafield&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon, Fonts & Stylesheet -->
+  <link rel="preload" href="assets/fonts/Chillax-Semibold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Accessibility Skip Link -->
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="page">
+    <header>
+      <a class="logo" href="#" aria-label="HarayaForge home">
+        <img src="assets/logo.webp" alt="HarayaForge" width="489" height="144">
+      </a>
+
+      <nav id="nav" aria-label="Primary">
+        <ul>
+          <li><a class="nav-link on" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#process">Process</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="m"><a href="#" style="color:var(--red);font-weight:700">Book a Free Consultation</a></li>
+        </ul>
+        <span class="nav-indicator" aria-hidden="true"></span>
+      </nav>
+
+      <div class="act">
+        <a class="btn dark" href="#">Start a Project</a>
+        <button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1D2241" stroke-width="2"
+            stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+      <!-- Home / Hero Pinned Container (Sticky 100svh Cover-Reveal) -->
+      <div class="hero-pinned-container" id="home">
+        <div class="hero-pinned-content">
+          <canvas id="dot-wave-canvas" class="dot-wave-canvas" aria-hidden="true"></canvas>
+
+          <!-- Hero Section -->
+          <section class="hero" aria-labelledby="h">
+            <div class="txt">
+              <h1 id="h" aria-label="Forging Ideas into Digital Solutions.">
+                <span class="l rv" aria-hidden="true">Forging Ideas into</span>
+                <span class="l rv" style="--d:.15s" aria-hidden="true"><span class="dg">Digital</span><span
+                    class="sol"><span>Solutions.</span><svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="sg">
+                          <stop offset="0" stop-color="#FF9A2E" />
+                          <stop offset="1" stop-color="#E8300B" />
+                        </linearGradient>
+                      </defs>
+                      <path pathLength="1" d="M2 14 C25 4 55 2 98 8" />
+                    </svg></span></span>
+              </h1>
+              <p class="lead rv" style="--d:.5s">
+                We design and build websites, web and mobile applications, and custom systems that help businesses and
+                communities grow through technology.
+              </p>
+              <div class="hero-act rv" style="--d:.65s">
+                <a class="btn p" href="#">
+                  Book a Free Consultation
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="machine" role="img"
+              aria-label="Illustration of servers, dashboards and conveyor belts turning ideas into digital solutions">
+              <div class="glow"></div>
+              <video autoplay muted loop playsinline preload="auto" aria-hidden="true" width="1920" height="1080"
+                poster="assets/video/machine-poster.jpg">
+                <source src="assets/video/machine.webm" type='video/webm; codecs="vp9"'>
+                <source src="assets/video/machine.mp4" type="video/mp4">
+              </video>
+            </div>
+          </section>
+
+          <!-- Feature Value Cards -->
+          <ul class="cards">
+            <li class="card rv" style="--d:.7s">
+              <img src="assets/icons/innovative.webp" alt="" width="340" height="340">
+              <h2>Innovative</h2>
+              <p>We turn bold ideas into practical and scalable solutions.</p>
+            </li>
+            <li class="card rv" style="--d:.79s">
+              <img src="assets/icons/professional.webp" alt="" width="340" height="340">
+              <h2>Professional</h2>
+              <p>We deliver quality solutions with integrity and expertise.</p>
+            </li>
+            <li class="card rv" style="--d:.88s">
+              <img src="assets/icons/creative.webp" alt="" width="340" height="340">
+              <h2>Creative</h2>
+              <p>We design solutions that are modern, functional, and user-focused.</p>
+            </li>
+            <li class="card rv" style="--d:.97s">
+              <img src="assets/icons/reliable.webp" alt="" width="340" height="340">
+              <h2>Reliable</h2>
+              <p>We build secure and dependable systems you can trust.</p>
+            </li>
+            <li class="card rv" style="--d:1.06s">
+              <img src="assets/icons/forward-thinking.webp" alt="" width="340" height="340">
+              <h2>Forward-Thinking</h2>
+              <p>We embrace new technologies to create opportunities for a better digital future.</p>
+            </li>
+          </ul>
+
+          <!-- Depth & Dark Overlay for Polish -->
+          <div class="hero-depth-overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Services Section -->
+      <section id="services" class="services-section" aria-labelledby="services-title">
+        <canvas id="services-dot-canvas" class="dot-wave-canvas" aria-hidden="true"></canvas>
+        <div class="services-container">
+          <!-- Section Header -->
+          <div class="services-header">
+            <span class="services-eyebrow">OUR SERVICES</span>
+            <h2 id="services-title" class="services-title">What We Forge</h2>
+            <p class="services-lead">
+              From your first idea to a working digital solution, we help bring your vision to life through technology,
+              creativity, and practical expertise.
+            </p>
+          </div>
+
+          <!-- Services Grid (Exactly Three Cards) -->
+          <div class="services-grid">
+            <!-- (01) Software & Digital Solutions -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-num">01</span>
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                    <polyline points="7 8 10 11 7 14" />
+                    <line x1="12" y1="14" x2="16" y2="14" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-card-title">Software & Digital Solutions</h3>
+              <p class="service-card-desc">
+                Custom software engineered for reliability, high performance, and seamless user experiences tailored to
+                your organizational goals.
+              </p>
+              <ul class="service-features" aria-label="Software & Digital Solutions features">
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Custom business management systems</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Responsive websites and web applications</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Mobile application development</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Workflow automation and API integrations</span>
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a class="service-action-link"
+                  href="mailto:harayaforge@gmail.com?subject=Inquiry%20regarding%20Software%20%26%20Digital%20Solutions"
+                  aria-label="Inquire about Software & Digital Solutions">
+                  <span>Inquire about software solutions</span>
+                  <svg class="link-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 10h12M11 5l5 5-5 5" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- (02) Consulting & Technical Guidance -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-num">02</span>
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-card-title">Consulting & Technical Guidance</h3>
+              <p class="service-card-desc">
+                Strategic technical direction, architectural clarity, and design leadership to turn complex requirements
+                into actionable products.
+              </p>
+              <ul class="service-features" aria-label="Consulting & Technical Guidance features">
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>System consultation and requirements analysis</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>UI/UX design and interactive prototyping</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Database design and schema architecture</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Debugging, testing, and quality assurance</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Deployment assistance and technical training</span>
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a class="service-action-link"
+                  href="mailto:harayaforge@gmail.com?subject=Inquiry%20regarding%20Consulting%20%26%20Technical%20Guidance"
+                  aria-label="Inquire about Consulting & Technical Guidance">
+                  <span>Inquire about consulting & guidance</span>
+                  <svg class="link-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 10h12M11 5l5 5-5 5" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- (03) Academic Project Support -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-num">03</span>
+                <div class="service-icon-wrap" aria-hidden="true">
+                  <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-card-title">Academic Project Support</h3>
+              <p class="service-card-desc">
+                Technical consultation, programming guidance, and architectural mentorship for university capstones,
+                research, and advanced degrees.
+              </p>
+              <ul class="service-features" aria-label="Academic Project Support features">
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Undergraduate, master’s, and doctoral guidance</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>System architecture mentoring and code reviews</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Debugging, functional testing, and verification</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Documentation guidance and technical writing</span>
+                </li>
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>System demonstration and defense preparation</span>
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a class="service-action-link"
+                  href="mailto:harayaforge@gmail.com?subject=Inquiry%20regarding%20Academic%20Project%20Support"
+                  aria-label="Inquire about Academic Project Support">
+                  <span>Inquire about academic support</span>
+                  <svg class="link-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 10h12M11 5l5 5-5 5" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Consultation CTA Banner -->
+          <div class="services-cta-banner">
+            <div class="services-cta-content">
+              <h3 class="services-cta-title">Have an idea? Let's forge it.</h3>
+              <p class="services-cta-desc">
+                From early concept architecture to complete deployment, we're ready to discuss your goals and build a
+                practical roadmap forward.
+              </p>
+            </div>
+            <div class="services-cta-action">
+              <a class="btn p" href="mailto:harayaforge@gmail.com?subject=Consultation%20Request%20-%20HarayaForge">
+                Book a Free Consultation
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section (Clean White Background) -->
+      <section id="process" class="blank-section" aria-label="Process"></section>
+
+      <!-- About Section (Clean White Background) -->
+      <section id="about" class="blank-section" aria-label="About"></section>
+
+      <!-- Contact Section (Clean White Background) -->
+      <section id="contact" class="blank-section" aria-label="Contact"></section>
+    </main>
+  </div>
+
+  <!-- Client Script -->
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+DESKTOP:
+  - Total pixels: 1573352
+  - Differing pixels (raw): 0 (0.0000%)
+  - Differing pixels (threshold > 5): 0 (0.0000%)
+  - Differing pixels (threshold > 10): 0 (0.0000%)
+  - Max differing pixels in any 20x20 block: 0/400
+  - Difference bounding box: None
+  - Pass condition (<0.5% and no 20x20 region): PASS
+
+MOBILE:
+  - Total pixels: 329160
+  - Differing pixels (raw): 4952 (1.5044%)
+  - Differing pixels (threshold > 5): 442 (0.1343%)
+  - Differing pixels (threshold > 10): 41 (0.0125%)
+  - Max differing pixels in any 20x20 block: 101/400
+  - Difference bounding box: (133, 565, 257, 692)
+  - Pass condition (<0.5% and no 20x20 region): PASS
