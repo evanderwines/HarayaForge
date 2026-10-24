@@ -71,13 +71,27 @@
   var navMenu = document.getElementById('nav');
   var navIndicator = navMenu ? navMenu.querySelector('.nav-indicator') : null;
   var desktopNavLinks = navMenu ? navMenu.querySelectorAll('ul li:not(.m) a') : [];
-  var homeLink = navMenu ? (navMenu.querySelector('a[href="#home"]') || navMenu.querySelector('a[href="#"]')) : null;
-  var servicesLink = navMenu ? navMenu.querySelector('a[href="#services"]') : null;
+  var homeLink = navMenu ? (
+    navMenu.querySelector('a[href="#home"]') ||
+    navMenu.querySelector('a[href="#"]') ||
+    navMenu.querySelector('a[href="index.html"]') ||
+    navMenu.querySelector('a[href="../../index.html"]')
+  ) : null;
+  var servicesLink = navMenu ? (
+    navMenu.querySelector('a[href="#services"]') ||
+    navMenu.querySelector('a[href$="pages/services/"]') ||
+    navMenu.querySelector('a[href="../services/"]')
+  ) : null;
   var servicesSection = document.getElementById('services');
   var homeSection = document.getElementById('home');
 
-  // Calculates and smoothly positions the sliding underline indicator beneath a target link
-  function updateIndicator(targetLink) {
+  // Queue indicator updates so rapid hover, scroll, resize, and font events cannot fight each other.
+  var indicatorFrame = 0;
+  var queuedIndicatorLink = null;
+  var queuedIndicatorInstant = false;
+  var indicatorReady = false;
+
+  function applyIndicator(targetLink, instant) {
     if (!navIndicator || !targetLink || window.innerWidth <= 900) return;
     var navRect = navMenu.getBoundingClientRect();
     var linkRect = targetLink.getBoundingClientRect();
@@ -86,10 +100,42 @@
     var width = linkRect.width;
 
     if (width > 0) {
+      if (instant || !indicatorReady) {
+        navIndicator.classList.remove('is-ready');
+      }
+
       navIndicator.style.transform = 'translateX(' + Math.round(left) + 'px)';
       navIndicator.style.width = Math.round(width) + 'px';
       navIndicator.style.opacity = '1';
+
+      if (!indicatorReady) {
+        indicatorReady = true;
+        requestAnimationFrame(function () {
+          navIndicator.classList.add('is-ready');
+        });
+      } else if (!instant) {
+        navIndicator.classList.add('is-ready');
+      }
     }
+  }
+
+  // Calculates and smoothly positions the sliding underline indicator beneath a target link.
+  function updateIndicator(targetLink, options) {
+    if (!navIndicator || !targetLink || window.innerWidth <= 900) return;
+
+    queuedIndicatorLink = targetLink;
+    queuedIndicatorInstant = Boolean(options && options.instant);
+
+    if (indicatorFrame) return;
+
+    indicatorFrame = requestAnimationFrame(function () {
+      var link = queuedIndicatorLink;
+      var instant = queuedIndicatorInstant;
+      indicatorFrame = 0;
+      queuedIndicatorLink = null;
+      queuedIndicatorInstant = false;
+      applyIndicator(link, instant);
+    });
   }
 
   // Updates the active state (.on) across desktop navigation items and repositions the sliding indicator
@@ -144,30 +190,33 @@
       }
     }
 
-    // Scrollspy for active nav link across Home, Services, Process, About, Contact
-    var triggerPoint = Math.min(window.innerHeight * 0.45, 320);
-    var activeTargetLink = homeLink;
+    // Scrollspy only belongs to the homepage. Inner pages already define their
+    // active route with .on and must not be reset to Home on every scroll event.
+    if (homeSection) {
+      var triggerPoint = Math.min(window.innerHeight * 0.45, 320);
+      var activeTargetLink = homeLink;
 
-    var sectionsToCheck = [
-      { link: navMenu ? navMenu.querySelector('a[href="#contact"]') : null, el: document.getElementById('contact') },
-      { link: navMenu ? navMenu.querySelector('a[href="#about"]') : null, el: document.getElementById('about') },
-      { link: navMenu ? navMenu.querySelector('a[href="#process"]') : null, el: document.getElementById('process') },
-      { link: servicesLink, el: servicesSection }
-    ];
+      var sectionsToCheck = [
+        { link: navMenu ? navMenu.querySelector('a[href="#contact"]') : null, el: document.getElementById('contact') },
+        { link: navMenu ? navMenu.querySelector('a[href="#about"]') : null, el: document.getElementById('about') },
+        { link: navMenu ? navMenu.querySelector('a[href="#process"]') : null, el: document.getElementById('process') },
+        { link: servicesLink, el: servicesSection }
+      ];
 
-    for (var s = 0; s < sectionsToCheck.length; s++) {
-      var item = sectionsToCheck[s];
-      if (item.el && item.link) {
-        var rect = item.el.getBoundingClientRect();
-        if (rect.top <= triggerPoint && rect.bottom >= 100) {
-          activeTargetLink = item.link;
-          break;
+      for (var s = 0; s < sectionsToCheck.length; s++) {
+        var item = sectionsToCheck[s];
+        if (item.el && item.link) {
+          var rect = item.el.getBoundingClientRect();
+          if (rect.top <= triggerPoint && rect.bottom >= 100) {
+            activeTargetLink = item.link;
+            break;
+          }
         }
       }
-    }
 
-    if (activeTargetLink && !activeTargetLink.classList.contains('on')) {
-      setActiveLink(activeTargetLink);
+      if (activeTargetLink && !activeTargetLink.classList.contains('on')) {
+        setActiveLink(activeTargetLink);
+      }
     }
 
     // Depth scale and dark overlay on sticky hero
@@ -222,6 +271,14 @@
     (function (link) {
       link.addEventListener('click', function (e) {
         var href = link.getAttribute('href');
+
+        // Mark the clicked route active immediately, before the browser navigates.
+        // The destination page also carries its own matching .on state for reloads.
+        if (href && !href.startsWith('#')) {
+          setActiveLink(link);
+          return;
+        }
+
         if (href && href.startsWith('#')) {
           var targetEl = (href === '#' || href === '#home') ? (homeSection || document.body) : document.querySelector(href);
           if (targetEl) {
@@ -242,14 +299,7 @@
     }
   });
 
-  // Ensure exact width and alignment after web fonts and assets finish loading
-  window.addEventListener('load', function () {
-    var activeLink = navMenu ? navMenu.querySelector('a.on') : null;
-    if (activeLink) {
-      updateIndicator(activeLink);
-    }
-  });
-
+  // Recalculate once after fonts settle; this avoids repeated transition resets during startup.
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () {
       var activeLink = navMenu ? navMenu.querySelector('a.on') : null;
@@ -261,12 +311,10 @@
 
   // Initial positioning
   onScroll();
-  setTimeout(function () {
-    var activeLink = navMenu ? navMenu.querySelector('a.on') : null;
-    if (activeLink) {
-      updateIndicator(activeLink);
-    }
-  }, 100);
+  var initialActiveLink = navMenu ? navMenu.querySelector('a.on') : null;
+  if (initialActiveLink) {
+    updateIndicator(initialActiveLink, { instant: true });
+  }
 
   /* ==========================================================================
      4. Dynamic Cursor-Triggered Pixelated Particle Trail Animation

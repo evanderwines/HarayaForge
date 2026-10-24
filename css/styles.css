@@ -368,11 +368,15 @@ nav a.on {
   pointer-events: none;
   opacity: 0;
   transform: translateX(0);
+  transition: none;
+  box-shadow: 0 0 10px rgba(247, 39, 3, 0.45), 0 1px 3px rgba(247, 39, 3, 0.3);
+  z-index: 2;
+}
+
+.nav-indicator.is-ready {
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
     width 0.38s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.25s ease;
-  box-shadow: 0 0 10px rgba(247, 39, 3, 0.45), 0 1px 3px rgba(247, 39, 3, 0.3);
-  z-index: 2;
 }
 
 nav .m {
@@ -458,18 +462,21 @@ nav .m {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
   width: 100%;
   z-index: 1;
   background: #ffffff;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-pinned-content {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -541,7 +548,7 @@ nav .m {
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: max(25vw, calc(100svh - clamp(80px, 8vw, 110px) - clamp(245px, 18vw, 290px)));
+  min-height: clamp(360px, calc(100svh - clamp(80px, 8vw, 110px) - clamp(245px, 18vw, 290px)), 60vw);
   padding: 0.8vw 0 2vw 4.2vw;
   margin: auto 0;
 }
