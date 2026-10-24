@@ -218,6 +218,86 @@ main {
   padding-top: 0;
 }
 
+/* ==========================================================================
+   Dedicated Page Layouts
+   ========================================================================== */
+.inner-page {
+  min-height: 100svh;
+  padding: clamp(150px, 18vw, 220px) 6vw 100px;
+  background:
+    radial-gradient(circle at 85% 18%, rgba(255, 122, 18, .12), transparent 28%),
+    linear-gradient(180deg, #fff 0%, #f7f8fc 100%);
+}
+
+.inner-page-content {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.inner-page-eyebrow {
+  margin: 0 0 18px;
+  color: var(--red);
+  font: 600 .78rem/1.2 'Panchang', sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.inner-page h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--navy);
+  font: 700 clamp(3rem, 8vw, 7rem)/.95 'Melodrama', Georgia, serif;
+  letter-spacing: -.045em;
+}
+
+.inner-page-lead {
+  max-width: 680px;
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.75;
+}
+
+.inner-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 64px;
+}
+
+.inner-page-card {
+  padding: 28px;
+  background: rgba(255, 255, 255, .78);
+  border: 1px solid rgba(17, 21, 67, .08);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(17, 21, 67, .06);
+}
+
+.inner-page-card h2 {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font: 700 1.5rem/1.1 'Melodrama', Georgia, serif;
+}
+
+.inner-page-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.inner-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+@media (max-width: 760px) {
+  .inner-page-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 header.scrolled {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(24px) saturate(180%);
